@@ -1,1 +1,2 @@
-module.exports = "TODO";
+const WebApp = require('./lib/webapp');
+module.exports = WebApp;
