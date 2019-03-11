@@ -1,2 +1,2 @@
-const WebApp = require('./lib/webapp');
+const WebApp = require('./lib/module');
 module.exports = WebApp;
