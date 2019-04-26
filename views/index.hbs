@@ -1,27 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-adapt-framework-version="" data-adapt-authoring-version="">
   <head>
-    <title>Adapt authoring tool</title>
-    <link rel="stylesheet" href="/css/main.css">
+    <title>{{productName}}</title>
+    <link rel="icon" type="image/png" href="/css/assets/favicon.png" />
+    <link rel="stylesheet" href="/css/adapt.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script type="text/javascript" src="/js/modernizr.js"></script>
+    <script src="//cdn.ckeditor.com/4.5.7/full-all/ckeditor.js"></script>
+    <script type="text/javascript" src="/js/require.js" data-main="/js/origin.js"></script>
+    <meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate" /> -->
+    <meta http-equiv="Pragma" content="no-store, no-cache" />
+    <meta http-equiv="Expires" content="0" />
   </head>
   <body>
-    <div id="app">
-      <img width="115" height="123" src="https://www.adaptlearning.org/wp-content/uploads/2015/11/home-hero-logo.png" class="vc_single_image-img attachment-full" alt="">
-      <h1>Welcome to Adapt</h1>
-      <p>Adapt is a free and easy to use e-learning authoring tool that creates fully responsive, multi-device, HTML5 e-learning content using the award-winning Adapt developer framework.</p>
-      <a href="https://adaptlearning.org" target="_blank">Visit adaptlearning.org</a>
+    <div id="app" class="app container">
+      <div class="location-title">
+      </div>
+      <div class="app-inner">
+      </div>
+      <div class="loading">
+        <div class="loading-inner">
+          <div class="loading-logo">
+              <img src="/css/assets/adapt-learning-logo-outline.png">
+          </div>
+          <div class="loading-anim">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
-  <style media="screen">
-    #app {
-      margin-top: 10%;
-      width: 70%;
-    }
-    h1 {
-      font-size: 65px;
-    }
-    p {
-      margin-bottom: 50px;
-    }
-  </style>
 </html>
