@@ -6,9 +6,6 @@
   "adapt_authoring": {
     "module": true
   },
-  "dependencies": {
-    "hbs": "4.0.1"
-  },
   "devDependencies": {
     "webpack": "4.12.0"
   }
