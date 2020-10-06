@@ -1,7 +1,7 @@
 // LICENCE https://github.com/adaptlearning/adapt_authoring/blob/master/LICENSE
 define(['require', 'backbone', 'core/origin'], function(require, Backbone, Origin) {
   var SessionModel = Backbone.Model.extend({
-    url: "api/authcheck",
+    url: "api/auth/check",
     defaults: {
       id: '',
       tenantId: '',
