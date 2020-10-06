@@ -3,7 +3,7 @@ define(function(require) {
   return {
     fetch: (endpoint, cb) => {
       $.get(endpoint)
-        .done(data => cb(data))
+        .done(data => cb(null, data))
         .fail(jqXhr => cb(jqXhr.responseJSON));
     }
   };
