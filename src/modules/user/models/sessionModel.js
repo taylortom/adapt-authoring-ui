@@ -10,29 +10,21 @@ define(['require', 'backbone', 'core/origin'], function(require, Backbone, Origi
       permissions: [],
       otherLoginLinks: []
     },
-
-    initialize: function() {
-    },
-
-    login: function (username, password, shouldPersist) {
-      var postData = {
-        email: username,
-        password: password,
-        shouldPersist: shouldPersist
-      };
-      $.post('api/login', postData, _.bind(function (jqXHR, textStatus, errorThrown) {
-        this.set({
-          id: jqXHR.id,
-          tenantId: jqXHR.tenantId,
-          email: jqXHR.email,
-          isAuthenticated: true,
-          permissions: jqXHR.permissions
+    
+    login: function (email, password, shouldPersist) {
+      $.post('api/auth/local', { email, password })
+        .done(jqXHR => {
+          this.set({
+            id: jqXHR.id,
+            email: jqXHR.email,
+            isAuthenticated: true
+          });
+          Origin.trigger('login:changed');
+          Origin.trigger('schemas:loadData', Origin.router.navigateToHome);
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+          Origin.trigger('login:failed', (jqXHR.responseJSON && jqXHR.responseJSON.errorCode) || 1);
         });
-        Origin.trigger('login:changed');
-        Origin.trigger('schemas:loadData', Origin.router.navigateToHome);
-      }, this)).fail(function(jqXHR, textStatus, errorThrown) {
-        Origin.trigger('login:failed', (jqXHR.responseJSON && jqXHR.responseJSON.errorCode) || 1);
-      });
     },
 
     logout: function () {
