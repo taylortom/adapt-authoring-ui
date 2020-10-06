@@ -20,9 +20,9 @@ define(['require', 'jquery', 'polyglot', 'core/origin', 'core/utils'], function(
   * Initialise from language file
   */
   var locale = localStorage.getItem('lang') || 'en';
-  Utils.fetch('/api/lang/' + locale, ({ message: error }, data) => {
+  Utils.fetch('/api/lang/' + locale, (error, data) => {
     if(error) {
-      return  console.error(error);
+      return console.error(error.message);
     }
     polyglot = new Polyglot({
       locale: locale,
