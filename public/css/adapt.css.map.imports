@@ -30,7 +30,8 @@
 @import 'frontend/src/modules/editor/global/less/colorLabels.less';
 @import 'frontend/src/modules/editor/global/less/editor.less';
 @import 'frontend/src/modules/editor/menuSettings/less/menusettings.less';
-@import 'frontend/src/modules/editor/selectTheme/less/editorTheme.less';
+@import 'frontend/src/modules/editor/themeEditor/less/editorPresetEdit.less';
+@import 'frontend/src/modules/editor/themeEditor/less/editorTheming.less';
 @import 'frontend/src/modules/filters/less/typeAhead.less';
 @import 'frontend/src/modules/frameworkImport/less/frameworkImport.less';
 @import 'frontend/src/modules/globalMenu/less/globalMenu.less';
