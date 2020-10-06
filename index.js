@@ -1,2 +1,1 @@
-const WebApp = require('./lib/module');
-module.exports = WebApp;
+module.exports = require('./lib/uiModule');
