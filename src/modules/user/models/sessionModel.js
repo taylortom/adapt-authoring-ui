@@ -2,28 +2,20 @@
 define(['require', 'backbone', 'core/origin'], function(require, Backbone, Origin) {
   var SessionModel = Backbone.Model.extend({
     url: "api/auth/check",
-    defaults: {
-      id: '',
-      tenantId: '',
-      email: '',
-      isAuthenticated: false,
-      permissions: [],
-      otherLoginLinks: []
-    },
-    
+
     login: function (email, password, shouldPersist) {
       $.post('api/auth/local', { email, password })
-        .done(jqXHR => {
-          this.set({
-            id: jqXHR.id,
-            email: jqXHR.email,
-            isAuthenticated: true
+        .done(token => {
+          this.fetch({ 
+            success: () => {
+              Origin.trigger('login:changed');
+              Origin.trigger('schemas:loadData', Origin.router.navigateToHome);
+            },
+            error: jqXhr => Origin.trigger('login:failed', jqXHR.status)
           });
-          Origin.trigger('login:changed');
-          Origin.trigger('schemas:loadData', Origin.router.navigateToHome);
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
-          Origin.trigger('login:failed', (jqXHR.responseJSON && jqXHR.responseJSON.errorCode) || 1);
+          Origin.trigger('login:failed', jqXHR.status);
         });
     },
 

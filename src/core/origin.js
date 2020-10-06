@@ -25,6 +25,7 @@ define(['require', 'underscore', 'backbone'], function(require, _, Backbone){
       Origin.sessionModel = session;
       session.fetch({
         success: function() {
+          session.set({ isAuthenticated: true });
           Origin.trigger('origin:sessionStarted');
           Origin.initialize();
         },
